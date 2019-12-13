@@ -1,0 +1,34 @@
+{
+  "connection": "default",
+  "collectionName": "category",
+  "info": {
+    "name": "category",
+    "description": "Category for deal"
+  },
+  "options": {
+    "timestamps": [
+      "createdAt",
+      "updatedAt"
+    ]
+  },
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "childrenCategories": {
+      "collection": "category",
+      "via": "parentCategory"
+    },
+    "parentCategory": {
+      "model": "category",
+      "via": "childrenCategories"
+    },
+    "deals": {
+      "collection": "deal",
+      "dominant": true,
+      "via": "categories"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "connection": "default",
+  "collectionName": "deal",
+  "info": {
+    "name": "deal",
+    "description": "A deal"
+  },
+  "options": {
+    "timestamps": [
+      "createdAt",
+      "updatedAt"
+    ]
+  },
+  "attributes": {
+    "description": {
+      "type": "string"
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "originalPrice": {
+      "type": "decimal",
+      "required": true
+    },
+    "images": {
+      "collection": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "url": {
+      "required": true,
+      "type": "string"
+    },
+    "categories": {
+      "collection": "category",
+      "via": "deals"
+    },
+    "expireDate": {
+      "type": "date"
+    }
+  }
+}
